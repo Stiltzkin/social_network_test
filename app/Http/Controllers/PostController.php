@@ -91,7 +91,7 @@ class PostController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',
             'description' => 'required|string',
-            'photo' => 'nullable',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             'user_id' => 'required|numeric',
         ]);
 

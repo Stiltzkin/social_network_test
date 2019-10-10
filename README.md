@@ -7,6 +7,8 @@
 4. Run *php artisan passport:keys*, copy the generated keys to be used in frontend for authentication,  
 5. Run your server.  
 
+OBS: the API does not store files nor file's url in database, the API look for the files in local storage based on ids of user/feed.
+
 **1. To log in**  
 By passing the right username, password, client secret, client id and grant type the auth endpoint returns an access token to be used in almost every request and it will be used to identify the user.  
 OBS: The API gets the id of who is logged in so you don`t need to pass it from the frontend.  
