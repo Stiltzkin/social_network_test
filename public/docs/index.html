@@ -1,0 +1,816 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/all.js"></script>
+
+
+          <script>
+        $(function() {
+            setupLanguages(["bash","javascript"]);
+        });
+      </script>
+      </head>
+
+  <body class="">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+        <img src="images/logo.png" />
+                    <div class="lang-selector">
+                                  <a href="#" data-language-name="bash">bash</a>
+                                  <a href="#" data-language-name="javascript">javascript</a>
+                            </div>
+                            <div class="search">
+              <input type="text" class="search" id="input-search" placeholder="Search">
+            </div>
+            <ul class="search-results"></ul>
+              <div id="toc">
+      </div>
+                    <ul class="toc-footer">
+                                  <li><a href='http://github.com/mpociot/documentarian'>Documentation Powered by Documentarian</a></li>
+                            </ul>
+            </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+          <!-- START_INFO -->
+<h1>Info</h1>
+<p>Welcome to the generated API reference.</p>
+<!-- END_INFO -->
+<h1>1. Social Network API</h1>
+<p>Social Network API Documentation to view profiles, create and like new posts, follow users and get users with most likes based on location.</p>
+<h1>2. Address</h1>
+<p>Address endpoints.</p>
+<!-- START_f731c9ff9b0115968cdf458f0de18b5d -->
+<h2>Addresses list</h2>
+<p>List of all addresses.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/v1/addresses" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/addresses");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": [
+        {
+            "id": 1,
+            "zip_code": "endereco 1"
+        },
+        {
+            "id": 2,
+            "zip_code": "endereco 2"
+        },
+        {
+            "id": 3,
+            "zip_code": "endereco 3"
+        },
+        {
+            "id": 4,
+            "zip_code": "endereco 3"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/addresses</code></p>
+<!-- END_f731c9ff9b0115968cdf458f0de18b5d -->
+<!-- START_f7ad1cf021c78e0a642abaabf859a9ce -->
+<h2>Create</h2>
+<p>Creates a new address</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/v1/addresses" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/addresses");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "msg": "Address created successfully!",
+    "data": {
+        "zip_code": "endereco 4",
+        "id": 5
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "errors": {
+        "zip_code": [
+            "The zip code field is required."
+        ]
+    },
+    "status": false
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/addresses</code></p>
+<!-- END_f7ad1cf021c78e0a642abaabf859a9ce -->
+<h1>3. User</h1>
+<p>User endpoints.</p>
+<!-- START_54e79987a234dc031c8810d8bb2fa237 -->
+<h2>api/v1/test</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/v1/test" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/test");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/test</code></p>
+<!-- END_54e79987a234dc031c8810d8bb2fa237 -->
+<!-- START_4194ceb9a20b7f80b61d14d44df366b4 -->
+<h2>Create</h2>
+<p>Creates a new user.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/v1/users" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"facilis","email":"eveniet","password":"perferendis","photo":"animi"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/users");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "name": "facilis",
+    "email": "eveniet",
+    "password": "perferendis",
+    "photo": "animi"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "msg": "User created successfully!",
+    "data": {
+        "name": "usuario 5",
+        "email": "email5@email",
+        "address_id": 2,
+        "updated_at": "2019-10-09 18:17:32",
+        "created_at": "2019-10-09 18:17:32",
+        "id": 5
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "errors": {
+        "name": [
+            "The name field is required."
+        ],
+        "email": [
+            "The email field is required."
+        ],
+        "password": [
+            "The password field is required."
+        ]
+    },
+    "status": false
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/users</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>User`s name</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>required</td>
+<td>User`s email</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>required</td>
+<td>User`s password</td>
+</tr>
+<tr>
+<td>photo</td>
+<td>file</td>
+<td>optional</td>
+<td>User`s image</td>
+</tr>
+</tbody>
+</table>
+<!-- END_4194ceb9a20b7f80b61d14d44df366b4 -->
+<!-- START_cedc85e856362e0e3b46f5dcd9f8f5d0 -->
+<h2>Details</h2>
+<p>Get details of an user.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/v1/users/1" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/users/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "id": 1,
+        "address_id": 1,
+        "name": "usuario 1",
+        "email": "email1@email",
+        "email_verified_at": null,
+        "photo": null,
+        "created_at": "2019-10-08 19:18:42",
+        "updated_at": "2019-10-08 19:18:42",
+        "addresses": {
+            "id": 1,
+            "zip_code": "endereco 1"
+        },
+        "follows": [],
+        "posts": [
+            {
+                "id": 1,
+                "user_id": 1,
+                "name": "post 1 do usuario 1",
+                "photo": null,
+                "description": "praia",
+                "created_at": "2019-10-08 19:19:01",
+                "updated_at": "2019-10-08 19:19:01"
+            },
+            {
+                "id": 2,
+                "user_id": 1,
+                "name": "post 2 do usuario 1",
+                "photo": null,
+                "description": "praia",
+                "created_at": "2019-10-08 19:19:10",
+                "updated_at": "2019-10-08 19:19:10"
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/users/{user}</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>required</td>
+<td>User id.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_cedc85e856362e0e3b46f5dcd9f8f5d0 -->
+<!-- START_9024904198f65018982c3e846de601b1 -->
+<h2>Follow</h2>
+<p>Follows an user.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/v1/users/follow/1" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/users/follow/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "msg": "Following"
+}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/users/follow/{user_id}</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>required</td>
+<td>User to be followed id.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_9024904198f65018982c3e846de601b1 -->
+<h1>4. Feed</h1>
+<p>Feed endpoints.</p>
+<!-- START_8c8dee3dc083fa8a3bbfd25342a7c1b6 -->
+<h2>Create</h2>
+<p>Creates a new post.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/v1/posts" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"aspernatur","description":"incidunt","photo":"dolorem"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/posts");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "name": "aspernatur",
+    "description": "incidunt",
+    "photo": "dolorem"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "msg": "Feed posted successfully!",
+    "data": {
+        "name": "post 1 do usuario 3",
+        "description": "praia",
+        "photo": null,
+        "user_id": 4,
+        "updated_at": "2019-10-09 18:39:35",
+        "created_at": "2019-10-09 18:39:35",
+        "id": 7
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "errors": {
+        "name": [
+            "The name field is required."
+        ],
+        "description": [
+            "The description field is required."
+        ]
+    },
+    "status": false
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/posts</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>Feed`s title</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>required</td>
+<td>Feed`s message</td>
+</tr>
+<tr>
+<td>photo</td>
+<td>file</td>
+<td>optional</td>
+<td>Feed`s image</td>
+</tr>
+</tbody>
+</table>
+<!-- END_8c8dee3dc083fa8a3bbfd25342a7c1b6 -->
+<!-- START_0a4452675c47dd92270900d7a1e7d281 -->
+<h2>Details</h2>
+<p>Get feed`s details and who liked it.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/v1/posts/1" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/posts/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "msg": "Feed posted successfully!",
+    "data": {
+        "name": "post 1 do usuario 3",
+        "description": "praia",
+        "photo": null,
+        "user_id": 4,
+        "updated_at": "2019-10-09 18:39:35",
+        "created_at": "2019-10-09 18:39:35",
+        "id": 7
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "errors": {
+        "name": [
+            "The name field is required."
+        ],
+        "description": [
+            "The description field is required."
+        ]
+    },
+    "status": false
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/posts/{post}</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>required</td>
+<td>Post id.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_0a4452675c47dd92270900d7a1e7d281 -->
+<h1>5. Like</h1>
+<p>Like endpoints.</p>
+<!-- START_357102e5c163339aec5a90c3563daf51 -->
+<h2>Like</h2>
+<p>Likes or dislike a post.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/v1/like/1" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/like/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "msg": "Liked"
+}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "msg": "Feed not found."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/like/{feed_id}</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>required</td>
+<td>Post id.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_357102e5c163339aec5a90c3563daf51 -->
+<!-- START_918054cca1f473226bbe64659a6bb4e5 -->
+<h2>Most likes in a location</h2>
+<p>List of users with most likes in a location.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/v1/like/bylocation/1" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/like/bylocation/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": [
+        {
+            "user_id": 2,
+            "likes": "3"
+        },
+        {
+            "user_id": 3,
+            "likes": "1"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/like/bylocation/{address_id}</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>required</td>
+<td>Address id.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_918054cca1f473226bbe64659a6bb4e5 -->
+<h1>Log in</h1>
+<!-- START_a09d20357336aa979ecd8e3972ac9168 -->
+<h2>Authorize a client to access the user&#039;s account.</h2>
+<p>Authenticate an user.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/oauth/token" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"client_id":"qui","client_secret":"dolorem","grant_type":"numquam","username":"architecto","password":"nulla"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/oauth/token");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "client_id": "qui",
+    "client_secret": "dolorem",
+    "grant_type": "numquam",
+    "username": "architecto",
+    "password": "nulla"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "invalid_credentials",
+    "error_description": "The user credentials were incorrect.",
+    "message": "The user credentials were incorrect."
+}</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "token_type": "Bearer",
+    "expires_in": 31622400,
+    "access_token": "{token}",
+    "refresh_token": "{refresh_token}"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST oauth/token</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>client_id</td>
+<td>string</td>
+<td>required</td>
+<td>Provided by the API`s owner</td>
+</tr>
+<tr>
+<td>client_secret</td>
+<td>string</td>
+<td>required</td>
+<td>Provided by the API`s owner</td>
+</tr>
+<tr>
+<td>grant_type</td>
+<td>string</td>
+<td>required</td>
+<td>Provided by the API`s owner</td>
+</tr>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>required</td>
+<td>User`s email</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>required</td>
+<td>User`s password</td>
+</tr>
+</tbody>
+</table>
+<!-- END_a09d20357336aa979ecd8e3972ac9168 -->
+      </div>
+      <div class="dark-box">
+                        <div class="lang-selector">
+                                    <a href="#" data-language-name="bash">bash</a>
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                              </div>
+                </div>
+    </div>
+  </body>
+</html>
